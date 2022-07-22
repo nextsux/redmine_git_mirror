@@ -1,3 +1,4 @@
+require_relative 'lib/redmine_git_mirror/hooks'
 require_relative 'lib/redmine_git_mirror/git'
 require_relative 'lib/redmine_git_mirror/ssh'
 require_relative 'lib/redmine_git_mirror/url'
