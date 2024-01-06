@@ -19,7 +19,7 @@ class Repository::GitMirror < Repository::Git
   }
 
   def home_url
-    m = url.match /(?<hostname>github\.com|gitlab\.com)[\/:](?<repository>.+)\.git$/
+    m = url.match /(?<hostname>github\.com|gitlab\.com|git\.blob\.team)[\/:](?<repository>.+)\.git$/
 
     m ? 'https://' + m[:hostname] + '/' + m[:repository] : nil
   end

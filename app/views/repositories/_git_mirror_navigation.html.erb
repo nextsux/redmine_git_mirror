@@ -6,6 +6,8 @@
             <%= link_to l(:button_view_on_github), @repository.home_url, :class => 'icon icon-github' %>
         <% elsif home_url.include? "gitlab.com" %>
             <%= link_to l(:button_view_on_gitlab), @repository.home_url, :class => 'icon icon-gitlab' %>
+        <% elsif home_url.include? "git.blob.team" %>
+            <%= link_to l(:button_view_on_gitlab), @repository.home_url, :class => 'icon icon-gitlab' %>
         <% end %>
     <% end %>
 <% end %>
