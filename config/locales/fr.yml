@@ -16,3 +16,4 @@ fr:
   label_gitlab_token: Jeton GitLab
   label_enable_github_hook: Activer le webhook GitHub
   label_github_secret_key: Clé secrète GitHub
+  button_view_diff_on_gitlab: (GitLab diff)

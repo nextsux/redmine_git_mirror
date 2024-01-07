@@ -1,0 +1,7 @@
+<% if !changeset.nil? and changeset.repository.is_a? Repository::GitMirror %>
+    <% if home_url = changeset.repository.home_url %>
+        <% if home_url.include? "gitlab.com" or home_url.include? "git.blob.team" %>
+            <%= link_to l(:button_view_diff_on_gitlab), changeset.repository.home_url + "/-/commit/" + changeset.identifier, :class => 'icon icon-gitlab' %>
+        <% end %>
+    <% end %>
+<% end %>

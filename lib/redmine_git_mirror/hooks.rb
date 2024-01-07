@@ -1,6 +1,7 @@
 module RedmineGitMirror
     class Hooks < Redmine::Hook::ViewListener
         render_on :view_repositories_navigation, partial: 'repositories/git_mirror_navigation'
+        render_on :view_repositories_show_revision_gl, partial: 'repositories/git_mirror_revision_gl'
 
         def view_layouts_base_html_head(context={})
             return stylesheet_link_tag(:redmine_git_mirror, :plugin => 'redmine_git_mirror')

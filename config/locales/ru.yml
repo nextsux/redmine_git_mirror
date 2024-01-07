@@ -1,2 +1,3 @@
 ru:
   text_git_mirror_url_note: URL удаленного репозитория.
+  button_view_diff_on_gitlab: (GitLab diff)
