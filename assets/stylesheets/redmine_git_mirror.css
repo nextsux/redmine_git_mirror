@@ -1,3 +1,15 @@
-.icon-github { background-image: url(../images/github.png); }
-.icon-gitlab { background-image: url(../images/gitlab.png); }
-.icon-server-go { background-image: url(../images/server-go.png); }
+.icon-github { background-image: url(../images/github.png)!important; }
+.icon-gitlab { background-image: url(../images/gitlab.png)!important; }
+.icon-server-go { background-image: url(../images/server-go.png)!important; }
+
+.icon.icon-github::before, .icon.icon-gitlab::before, .icon.icon-server-go::before {
+    content: ""!important;
+}
+
+.note .icon-github, .note .icon-gitlab {
+    padding-left: 20px;
+}
+
+.note > p {
+    padding-left: 25px;
+}
