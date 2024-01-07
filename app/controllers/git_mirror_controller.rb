@@ -1,5 +1,7 @@
 
 class GitMirrorController < ActionController::Base
+  # Requests from clients don't contain CSRF tokens
+  skip_before_action :verify_authenticity_token
 
   # abstract hook for repo update via remote url
   def fetch
