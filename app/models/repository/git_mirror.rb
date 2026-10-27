@@ -132,6 +132,14 @@ class Repository::GitMirror < Repository::Git
     super()
   end
 
+  # excluded heads may no longer exist in the mirror, when a branch is deleted
+  # or force pushed and the commit is pruned before the heads get rewritten
+  def save_revisions(prev_db_heads, repo_heads)
+    prev_db_heads = RedmineGitMirror::Git.existing_commits(root_url, prev_db_heads)
+
+    super(prev_db_heads, repo_heads)
+  end
+
   def fetch
     return if @fetched
     @fetched = true

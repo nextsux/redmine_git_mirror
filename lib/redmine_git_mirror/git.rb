@@ -32,6 +32,20 @@ module RedmineGitMirror
         e
       end
 
+      def existing_commits(path, shas)
+        return [] if shas.empty?
+
+        o, _, status = Open3.capture3(
+          GIT_BIN, "--git-dir", path, "cat-file", "--batch-check",
+          stdin_data: shas.map { |sha| "#{sha}^{commit}" }.join("\n") + "\n"
+        )
+        return shas unless status.success?
+
+        o.lines.each_with_index
+         .reject { |line, _| line.include?(' missing') }
+         .map { |_, i| shas[i] }
+      end
+
       def init(clone_path, url)
         url = RedmineGitMirror::URL.parse(url)
         RedmineGitMirror::Ssh.ensure_host_known(url.host) if url.uses_ssh?
